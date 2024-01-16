@@ -4,6 +4,10 @@ import org.junit.Test;
 import pages.MainPage;
 
 import static core.utils.ResourcesUtils.getResource;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static pages.CheckTicket.realNameOfPicture;
+import static pages.CheckTicket.realTitle;
 
 
 public class FinalTests extends BaseTest {
@@ -21,13 +25,16 @@ public class FinalTests extends BaseTest {
                 .newTicket()
                 .addFieldOfSummary()
                 .addPicture()
+                .addAllFields()
                 .submit();
 
-//        String realNameOfPicture = realNameOfPicture();
-//        String realTitle = realTitle();
-//        assertTrue(
-//        "В заголовке присутсвует имя тикета, заполненное в поле SUMMARY",realTitle.contains(expectedTitle));
+        String realNameOfPicture = realNameOfPicture();
+        String realTitle = realTitle();
+        assertTrue(
+        "В заголовке присутсвует имя тикета, заполненное в поле SUMMARY",realTitle.contains(expectedTitle));
 
-//        assertEquals("Имена файлов совпадают", realNameOfPicture, expectedNameOfPicture);
+        assertEquals("Имена файлов совпадают", realNameOfPicture, expectedNameOfPicture);
     }
+
+
 }
