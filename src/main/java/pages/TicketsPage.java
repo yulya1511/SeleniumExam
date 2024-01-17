@@ -12,7 +12,7 @@ public class TicketsPage extends BasePage {
         super(By.xpath("//li[contains(@class, 'nav') and contains(text(), 'Query')]"));
     }
 
-    public CreateTicket newTicket(){
+    public CreateTicket newTicket() {
         waitUntilPresenceOfElementLocated(NEW_TICKET).click();
         return new CreateTicket();
     }

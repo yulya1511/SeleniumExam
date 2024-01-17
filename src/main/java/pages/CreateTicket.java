@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 
-import static core.utils.ResourcesUtils.getResource;
 import static core.utils.WaitUtils.waitUntilPresenceOfElementLocated;
 
 public class CreateTicket extends BasePage {
@@ -15,44 +14,34 @@ public class CreateTicket extends BasePage {
     private static final By DATA_FIELD = By.xpath("//input[@id='id_due_date']");
     private static final By DATA = By.xpath("//a[text()='14']");
     private static final By SUBMIT_BUTTON = By.xpath("//button[@class='btn btn-primary btn-lg btn-block']");
-    protected static final String BODY_INPUT = "-";
-    public static final String SUMMARY = "SUMMARY";
-    protected static final String WAY_TO_PICTURE = "/Users/julia/Desktop/Norway.jpg";
 
     public CreateTicket() {
         super(By.xpath("//*[contains(text(), 'Unless otherwise')]"));
     }
 
-    public CreateTicket addFieldOfSummary() {
+    public CreateTicket addFieldOfSummary(String summary) {
         waitUntilPresenceOfElementLocated(SUMMARY_FIELD).clear();
-        waitUntilPresenceOfElementLocated(SUMMARY_FIELD).sendKeys(getResource(SUMMARY));
+        waitUntilPresenceOfElementLocated(SUMMARY_FIELD).sendKeys(summary);
         return new CreateTicket();
 
     }
 
-    public CreateTicket addPicture() {
-        waitUntilPresenceOfElementLocated(CHOOSE_FILE).sendKeys(WAY_TO_PICTURE);
+    public CreateTicket addPicture(String path) {
+        waitUntilPresenceOfElementLocated(CHOOSE_FILE).sendKeys(path);
         return new CreateTicket();
     }
 
-    public CreateTicket addAllFields() {
+    public CreateTicket addAllFields(String body) {
         waitUntilPresenceOfElementLocated(QUEUE).click();
-        waitUntilPresenceOfElementLocated(SUMMARY_FIELD).clear();
-        waitUntilPresenceOfElementLocated(SUMMARY_FIELD).sendKeys(getResource(SUMMARY));
-        waitUntilPresenceOfElementLocated(BODY).sendKeys(BODY_INPUT);
+        waitUntilPresenceOfElementLocated(BODY).sendKeys(body);
         waitUntilPresenceOfElementLocated(DATA_FIELD).click();
         waitUntilPresenceOfElementLocated(DATA).click();
-        waitUntilPresenceOfElementLocated(CHOOSE_FILE).sendKeys(WAY_TO_PICTURE);
         waitUntilPresenceOfElementLocated(CASE_OWNER).click();
         return new CreateTicket();
     }
 
-    public CheckTicket submit(){
+    public CheckTicket submit() {
         waitUntilPresenceOfElementLocated(SUBMIT_BUTTON).click();
         return new CheckTicket();
     }
 }
-
-
-
-

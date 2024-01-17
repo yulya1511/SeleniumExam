@@ -10,22 +10,20 @@ import static core.utils.DriverUtils.open;
 import static core.utils.DriverUtils.openWindowMax;
 import static core.utils.ResourcesUtils.getResource;
 
-
-
 abstract public class BaseTest {
 
     protected WebDriverWait wait;
     protected final static String HOST = "URL_HOST";
 
     @Before
-    public void setUp(){
+    public void setUp() {
         open(getResource(HOST));
         openWindowMax();
         wait = WaitUtils.getExplicitWait();
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         closeDriver();
     }
 }

@@ -8,8 +8,8 @@ public class DriverManager {
 
     public static WebDriver driver;
 
-    public static WebDriver getDriver(){
-        if (driver == null){
+    public static WebDriver getDriver() {
+        if (driver == null) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             return driver;
@@ -17,10 +17,9 @@ public class DriverManager {
         return driver;
     }
 
-    public static void closeDriver(){
+    public static void closeDriver() {
         driver.close();
         driver.quit();
         driver = null;
     }
 }
-

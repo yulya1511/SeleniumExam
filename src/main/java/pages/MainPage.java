@@ -12,7 +12,7 @@ public class MainPage extends BasePage {
         super(By.xpath("//*[text()='Knowledgebase Articles']"));
     }
 
-    public SignInPage signIn(){
+    public SignInPage signIn() {
         waitUntilPresenceOfElementLocated(LOG_IN).click();
         return new SignInPage();
     }

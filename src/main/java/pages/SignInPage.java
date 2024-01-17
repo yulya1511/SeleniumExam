@@ -2,8 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 
-import static core.utils.WaitUtils.waitUntilPresenceOfElementLocated;
 import static core.utils.ResourcesUtils.getResource;
+import static core.utils.WaitUtils.waitUntilPresenceOfElementLocated;
 
 public class SignInPage extends BasePage {
 
@@ -18,7 +18,7 @@ public class SignInPage extends BasePage {
         super(By.xpath("//div[text()='Please Sign In']"));
     }
 
-    public TicketsPage enterToSystem(){
+    public TicketsPage enterToSystem() {
         waitUntilPresenceOfElementLocated(USERNAME_FIELD).clear();
         waitUntilPresenceOfElementLocated(USERNAME_FIELD).sendKeys(getResource(LOGIN));
         waitUntilPresenceOfElementLocated(PASSWORD_FIELD).clear();
