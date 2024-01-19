@@ -1,10 +1,12 @@
 package tests;
 
 import core.constants.FileConstants;
+import org.junit.Ignore;
 import org.junit.Test;
 import pages.MainPage;
 
 import static core.utils.StringUtils.getUniqueString;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static pages.CheckTicket.realNameOfPicture;
 import static pages.CheckTicket.realTitle;
@@ -33,5 +35,15 @@ public class FinalTest extends BaseTest {
         assertTrue("В заголовке присутсвует имя тикета, заполненное в поле SUMMARY",
                 realTitle.contains(TEST_SUMMARY));
         assertTrue("Имена файлов совпадают", TEST_PICTURE.contains(realNameOfPicture));
+    }
+
+    @Test
+    @Ignore
+    public void loginTest() {
+        // Чтобы получить System.getProperty("login"); в консоли пишем -Dlogin=<какой-то логин>
+        // mvn test -Dlogin="MySuperLogin"
+        String loginFromProperty = System.getProperty("login");
+
+        assertEquals("MySuperLogin", loginFromProperty);
     }
 }
